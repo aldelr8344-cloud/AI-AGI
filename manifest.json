@@ -1,0 +1,21 @@
+{
+  "short_name": "AI • AGI",
+  "name": "من ما قبل الذكاء الاصطناعي AI • AGI",
+  "icons": [
+    {
+      "src": "icon512.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "icon192.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": "/AI-AGI/",
+  "background_color": "#06080f",
+  "display": "standalone",
+  "theme_color": "#06080f",
+  "orientation": "portrait"
+}

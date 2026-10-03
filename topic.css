@@ -1,0 +1,322 @@
+/* ============================================
+   AI / AGI WEBSITE — topic.css
+   صفحات المواضيع (مشترك)
+   اللون الأساسي: #1E8DFF
+   ============================================ */
+
+:root {
+  --black:        #06080f;
+  --black2:       #0b0f1a;
+  --black3:       #111827;
+  --blue:         #1E8DFF;
+  --blue-bright:  #4da3ff;
+  --blue-glow:    rgba(30, 141, 255, 0.25);
+  --cyan:         #22d3ee;
+  --text:         #e0f2fe;
+  --text-dim:     #94a3b8;
+  --text-muted:   #475569;
+  --white:        #ffffff;
+  --border:       rgba(30, 141, 255, 0.18);
+  --border-blue:  rgba(30, 141, 255, 0.4);
+}
+
+/* ── ريسيت ── */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--black);
+  color: var(--text);
+  font-family: 'Cairo', 'Tajawal', sans-serif;
+  direction: rtl;
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.8;
+}
+
+/* شبكة خفيفة في الخلفية */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(30, 141, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 141, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Scrollbar ── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--blue); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--blue-bright); }
+
+
+/* ================================================
+   HEADER
+   ================================================ */
+.topic-header {
+  width: 100%;
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--border);
+  background: rgba(6, 8, 15, 0.92);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.topic-logo {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 1.05rem;
+  color: var(--blue-bright);
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-shadow: 0 0 12px var(--blue-glow);
+}
+
+.topic-logo span {
+  color: var(--cyan);
+}
+
+.back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border-blue);
+  color: var(--text-dim);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  text-decoration: none;
+  transition: all 0.3s;
+  font-family: 'Cairo', sans-serif;
+}
+
+.back-btn:hover {
+  border-color: var(--blue);
+  color: var(--blue-bright);
+  background: rgba(30, 141, 255, 0.08);
+  box-shadow: 0 0 16px var(--blue-glow);
+}
+
+
+/* ================================================
+   محتوى الموضوع
+   ================================================ */
+.topic-container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 50px 24px 80px;
+  position: relative;
+  z-index: 1;
+}
+
+/* رقم + عنوان */
+.topic-head {
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.topic-number {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.8rem;
+  letter-spacing: 3px;
+  color: var(--blue);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.topic-title {
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  font-weight: 900;
+  color: var(--white);
+  line-height: 1.35;
+}
+
+/* جسم المحتوى */
+.topic-body {
+  font-size: 1.02rem;
+  color: var(--text);
+  line-height: 2;
+}
+
+.topic-body p {
+  margin-bottom: 18px;
+}
+
+.topic-body strong {
+  color: var(--blue-bright);
+  font-weight: 700;
+}
+
+.topic-body em {
+  color: var(--cyan);
+  font-style: normal;
+}
+
+/* بوكس مميز */
+.highlight-box {
+  background: var(--black3);
+  border: 1px solid var(--border);
+  border-right: 3px solid var(--blue);
+  padding: 18px 22px;
+  margin: 24px 0;
+  border-radius: 6px;
+}
+
+.highlight-box.gold {
+  border-right-color: var(--cyan);
+}
+
+/* قوائم */
+.topic-body ul {
+  list-style: none;
+  margin: 18px 0;
+}
+
+.topic-body ul li {
+  padding: 7px 0;
+  padding-right: 22px;
+  position: relative;
+  color: var(--text);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+.topic-body ul li::before {
+  content: '▸';
+  position: absolute;
+  right: 0;
+  color: var(--blue);
+}
+
+.topic-body ol {
+  padding-right: 22px;
+  margin: 18px 0;
+}
+
+.topic-body ol li {
+  padding: 6px 8px;
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 0.98rem;
+}
+
+.topic-body ol li::marker {
+  color: var(--blue);
+  font-family: 'Share Tech Mono', monospace;
+}
+
+/* كروت */
+.info-card {
+  background: var(--black3);
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin: 18px 0;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+.info-card:hover {
+  border-color: var(--blue);
+}
+
+.info-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--blue-bright);
+  margin-bottom: 8px;
+}
+
+.info-card-desc {
+  font-size: 0.92rem;
+  color: var(--text-dim);
+  line-height: 1.75;
+}
+
+
+/* ================================================
+   FOOTER بسيط
+   ================================================ */
+.topic-footer {
+  text-align: center;
+  padding: 30px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  font-family: 'Share Tech Mono', monospace;
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ================================================
+   REVEAL
+   ================================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+
+/* ================================================
+   RESPONSIVE
+   ================================================ */
+@media (max-width: 768px) {
+  .topic-header {
+    padding: 14px 18px;
+  }
+
+  .topic-container {
+    padding: 36px 18px 60px;
+  }
+
+  .topic-title {
+    font-size: 1.5rem;
+  }
+
+  .back-btn {
+    padding: 7px 14px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .topic-header {
+    padding: 12px 14px;
+  }
+
+  .topic-logo {
+    font-size: 0.95rem;
+  }
+
+  .topic-container {
+    padding: 28px 14px 50px;
+  }
+
+  .topic-body {
+    font-size: 0.95rem;
+  }
+}
